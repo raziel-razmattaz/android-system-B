@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">android-system-specifics-2024B</string>
-    <string name="timer_label">Time\'s Up</string>
+    <string name="timer_label">Music Button</string>
     <!-- EXERCISE SOLUTION -->
     <string name="focus_label">Focus Time</string>
     <string name="short_break_label">Short Break</string>
