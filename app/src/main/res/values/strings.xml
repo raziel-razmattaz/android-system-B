@@ -5,4 +5,15 @@
     <string name="focus_label">Focus Time</string>
     <string name="short_break_label">Short Break</string>
     <string name="long_break_label">Long Break</string>
+
+
+
+    <!--Für Aufgabe 2 -->
+    <string name="permission_button_label">Request POST_NOTIFICATIONS</string>
+    <string name="erklaerungsDialog_title">Berechtigung für Benachrichtigungen benötigt</string>
+    <string name="desc_normal">Wir benötigen die Erlaubnis, Benachrichtigungen zu senden, damit du immer über den Timer informiert bleibst.</string>
+    <string name="desc_app_info">Du hast die Berechtigung zu oft abgelehnt. Gehe in die App Info und erteile uns die Berechtigung manuell, damit du immer über den Timer informiert bleibst.</string>
+    <string name="abbrechen_button_label">Abbrechen</string>
+    <string name="ok_button_label">Ok</string>
+    <string name="app_info_button_label">App info</string>
 </resources>
