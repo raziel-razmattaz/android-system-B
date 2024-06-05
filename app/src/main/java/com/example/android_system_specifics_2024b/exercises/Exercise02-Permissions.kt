@@ -45,19 +45,20 @@ fun NotificationPermissionScreen() {
         Button(onClick = {
 
             /* TODO:
-                Aufgabe 2a
+                Aufgabe 2b
                 Implementiere die abfrage, ob Build.VERSION.SDK_INT mindestens Android 13 entspricht
                 -
                 Tipp:
                 Build.VERSION.SDK_INT --> aktuelle version
                 Build.VERSION_CODES.TIRAMISU --> Android 13
                 -
-                Aufgabe 2b
-                Nutze dann den notificationPermissionLauncher um die in der Android Manifest hinzugefügte Benachrichtigungs-permission zu erfragen.
+                Aufgabe 2c
+                Nutze dann den notificationPermissionLauncher um die Anfrage auf die in der Android Manifest hinzugefügte Benachrichtigungs-permission zu launchen.
             */
 
             //LÖSUNG
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                //LÖSUNG
                 notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
         }) {
@@ -77,10 +78,10 @@ fun NotificationPermissionScreen() {
 /*
     TODO:
         Eine App kann eine Berechtigung nur 2 mal abfragen, dannach muss der nutzer diese manuell in der App info ertielen.
-        Aufgabe 2c
+        Aufgabe 2d
         Lade die passenden String Ressourcen desc_app_info und desc_normal
         -
-        Aufgabe 2d
+        Aufgabe 2e
         Implementiere, dass der AppInfoButton() auftaucht, sobald der Nutzer mindestens 2 mal abgelehnt hat.
 */
 
@@ -99,20 +100,20 @@ fun ErklaerungsDialog(onDismiss: () -> Unit, ablehnungsCount: Int,) {
 
             //Wenn der Nutzer mindestens 2 mal abgelehnt hat
             if (ablehnungsCount >= 2) {
-                //TODO: 2c Nutze die stringResource "desc_app_info".
+                //TODO: 2d Nutze die stringResource "desc_app_info".
 
                 //LÖSUNG
                 Text(text = stringResource(id = R.string.desc_app_info))
             }else{
                 //Wenn der Nutzer weniger als 2 mal abgelehnt hat.
-                //TODO: 2c Nutze die stringResource "desc_normal".
+                //TODO: 2d Nutze die stringResource "desc_normal".
 
                 //LÖSUNG
                 Text(text = stringResource(id = R.string.desc_normal))
             }
         },
         confirmButton = {
-            //TODO: 2c.3 Implementiere, dass der AppInfoButton() auftaucht, sobald der Nutzer mindestens 2 mal abgelehnt hat.
+            //TODO: 2e Implementiere, dass der AppInfoButton() auftaucht, sobald der Nutzer mindestens 2 mal abgelehnt hat.
 
             //LÖSUNG
             if (ablehnungsCount >= 2) {
