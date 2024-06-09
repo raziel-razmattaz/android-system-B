@@ -46,14 +46,14 @@ fun NotificationPermissionScreen() {
 
             /* TODO:
                 Aufgabe 2b
-                Implementiere die abfrage, ob Build.VERSION.SDK_INT mindestens Android 13 entspricht
+                Implementiere die Abfrage, ob Build.VERSION.SDK_INT mindestens Android 13 entspricht.
                 -
                 Tipp:
                 Build.VERSION.SDK_INT --> aktuelle version
                 Build.VERSION_CODES.TIRAMISU --> Android 13
                 -
                 Aufgabe 2c
-                Nutze dann den notificationPermissionLauncher um die Anfrage auf die in der Android Manifest hinzugefügte Benachrichtigungs-permission zu launchen.
+                Nutze den notificationPermissionLauncher und die launch() Funktion um die Anfrage auf die in der Android Manifest hinzugefügte Benachrichtigungs-permission zu erstellen.
             */
 
             //LÖSUNG
@@ -77,7 +77,8 @@ fun NotificationPermissionScreen() {
 
 /*
     TODO:
-        Eine App kann eine Berechtigung nur 2 mal abfragen, dannach muss der nutzer diese manuell in der App info ertielen.
+        Eine App kann eine Berechtigung nur 2 mal abfragen, dannach muss der Nutzer diese manuell in der App info ertielen. Implementiere dafür die richtigen Buttons und Erklärungstexte
+        -
         Aufgabe 2d
         Lade die passenden String Ressourcen desc_app_info und desc_normal
         -
@@ -100,13 +101,13 @@ fun ErklaerungsDialog(onDismiss: () -> Unit, ablehnungsCount: Int,) {
 
             //Wenn der Nutzer mindestens 2 mal abgelehnt hat
             if (ablehnungsCount >= 2) {
-                //TODO: 2d Nutze die stringResource "desc_app_info".
+                //TODO: 2d nutze die StringResource "desc_app_info".
 
                 //LÖSUNG
                 Text(text = stringResource(id = R.string.desc_app_info))
             }else{
                 //Wenn der Nutzer weniger als 2 mal abgelehnt hat.
-                //TODO: 2d Nutze die stringResource "desc_normal".
+                //TODO: 2d nutze die StringResource "desc_normal".
 
                 //LÖSUNG
                 Text(text = stringResource(id = R.string.desc_normal))
@@ -145,7 +146,6 @@ fun AppInfoButton(context : Context){
         }
     ) {
         Text(stringResource(id = R.string.app_info_button_label))
-
     }
 }
 
