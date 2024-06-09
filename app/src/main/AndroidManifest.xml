@@ -9,7 +9,7 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <!--LÖSUNG -->
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
 
     <application
         android:allowBackup="true"
