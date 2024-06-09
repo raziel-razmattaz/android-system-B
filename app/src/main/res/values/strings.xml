@@ -1,12 +1,8 @@
 <resources>
     <string name="app_name">android-system-specifics-2024B</string>
     <string name="timer_label">Music Button</string>
-    <!-- EXERCISE SOLUTION -->
-    <string name="focus_label">Focus Time</string>
-    <string name="short_break_label">Short Break</string>
-    <string name="long_break_label">Long Break</string>
-
-
+    <!-- AUFGABE 1 LÖSUNG -->
+    <!-- -->
 
     <!--Für Aufgabe 2 -->
     <string name="permission_button_label">Request POST_NOTIFICATIONS</string>

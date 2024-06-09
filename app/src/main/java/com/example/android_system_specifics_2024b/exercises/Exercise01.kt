@@ -31,7 +31,7 @@ import com.example.android_system_specifics_2024b.R
 @Composable
 fun StringAccess( modifier: Modifier = Modifier) {
     Column {
-        // EXERCISE SOLUTION
+        // TODO
         //
     }
 }
@@ -48,7 +48,7 @@ fun StringAccessPreview() {
 var mediaPlayer : MediaPlayer? = null
 
 fun toggleMusic(context : Context) {
-    //EXERCISE SOLUTION
+    //TODO
     //
 }
 
@@ -56,7 +56,7 @@ fun toggleMusic(context : Context) {
 fun MusicRessource(modifier: Modifier = Modifier) {
     val context = LocalContext.current
     Column {
-        // EXERCISE SOLUTION
+        //TODO
         //
     }
 }
