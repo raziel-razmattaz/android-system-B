@@ -32,7 +32,7 @@ import com.example.android_system_specifics_2024b.R
 
 
 
-class Exercise03Notifications : ComponentActivity() {
+class Exercise03NotificationsLösung : ComponentActivity() {
     private var mediaPlayer: MediaPlayer? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,46 +51,46 @@ class Exercise03Notifications : ComponentActivity() {
     fun showNotification() {
 
         createNotificationChannel()
-
         // Basis Intent (Tippaktion) um Aktivität zu öffen, wenn user auf die Benachrichtung tippt
         val intent = Intent(this, Exercise03Notifications::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK }
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         //Erstellen der Benachrichtigung
         /*
          TODO 3a
               Vervollständige den builder für die Notification, es fehlt ein icon(ic_launcher_foreground),
-              ein Untertext und die Zuweisung für den Basis Intent.*/
-
+              ein Untertext und die Zuweisung für den Basis Intent.
+        */
+        //Lösung 3a
         val builder = NotificationCompat.Builder(this, "TIMER_CHANNEL")
-            //TODO // Icon
+            .setSmallIcon(R.drawable.ic_launcher_foreground) // Icon
             .setContentTitle("Timer fertig!") // Titel
-            //TODO // Untertext
-            .setPriority(NotificationCompat.PRIORITY_HIGH) // Priorität(Android7.1 und niedriger)(Ab 8.0 mit NotificationChannel)
-            //TODO //zuweisung für den Basis Intent
+            .setContentText("Dein Timer ist fertig") // Untertext
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT) // Priorität(Android7.1 und niedriger)(Ab 8.0 mit NotificationChannel)
+            .setContentIntent(pendingIntent)//zuweisung für den Basis Intent
             .setAutoCancel(true) //entfernt benachrichtigung sobald user drauftippt
-
 
         //Überprüfung, ob app die berechtigung zum senden von Benachrichtigungen hat und anschließendes senden der notification
         with(NotificationManagerCompat.from(this)) {
             if (ActivityCompat.checkSelfPermission(
-                    this@Exercise03Notifications,
+                    this@Exercise03NotificationsLösung,
                     Manifest.permission.POST_NOTIFICATIONS
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
             }
-            notify(1, builder.build()) // senden der notification
+            notify(1, builder.build()) // Senden der notification
         }
         /*
         TODO 3b
-             Erstelle nun einen MediaPlayer(mit der timer_melody aus aufgabe1) und starte diesen,
-             damit beim erscheinen der Notifcation ein Sound abgespielt wird.       */
+             Erstelle nun einen MediaPlayer(mit der timer_melody aus aufgabe1),
+             damit beim erscheinen der Notifcation ein Sound abgespielt wird.
+       */
 
-        //TODO
-
-
-
+        //Lösung 3b
+        mediaPlayer = MediaPlayer.create(this, R.raw.timer_melody)
+        mediaPlayer?.start()
 
     }
     /*TODO 3c
@@ -101,28 +101,29 @@ class Exercise03Notifications : ComponentActivity() {
             welche von der Timer Methode übergeben werden)
             Am Ende muss noch die Notification gesendet werden
             (TIPP: die progressNotification braucht eine andere id als die Notification,
-            damit die Notifications getrennt voneinander geschlossen werden können)
-            (dies wird weiter unten in der onFinisch Methode von StartTimer behandelt)
-            */
+            damit die Notifications getrennt voneinander und geschlossen werden können)
+            (dies wird weiter unten in der onFinisch Methode von StartTimer behandelt)*/
+    //Lösung 3c
     private fun showProgressNotification(progress: Int, maxProgress: Int) {
-        val builder =   //TODO
+        val builder = NotificationCompat.Builder(this, "TIMER_CHANNEL")
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setContentTitle("Timer läuft...")
+            .setContentText("Verbleibende Zeit: $progress Sekunden")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setProgress(maxProgress, progress, false) //Fortschrittsbalken
 
-
-
-
-
-
-            with(NotificationManagerCompat.from(this)) {
-                if (ActivityCompat.checkSelfPermission(
-                        this@Exercise03Notifications,
-                        Manifest.permission.POST_NOTIFICATIONS
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    return
-                }
-                //TODO
+        with(NotificationManagerCompat.from(this)) {
+            if (ActivityCompat.checkSelfPermission(
+                    this@Exercise03NotificationsLösung,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                return
             }
+            notify(2, builder.build())
+        }
     }
+
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -154,7 +155,7 @@ class Exercise03Notifications : ComponentActivity() {
             override fun onFinish() {
                 onFinish()
                 showNotification() //Nach ablaufen des Times wird die Notification gestartet
-                with(NotificationManagerCompat.from(this@Exercise03Notifications)) {
+                with(NotificationManagerCompat.from(this@Exercise03NotificationsLösung)) {
                     cancel(2)   //Nach ablaufen des Timers wird die ProgressNotification automatisch geschlossen
                 }
             }
