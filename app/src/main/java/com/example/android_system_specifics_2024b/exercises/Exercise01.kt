@@ -32,9 +32,7 @@ import com.example.android_system_specifics_2024b.R
 fun StringAccess( modifier: Modifier = Modifier) {
     Column {
         // EXERCISE SOLUTION
-        Text(text = stringResource(id = R.string.focus_label))
-        Text(text = stringResource(id = R.string.short_break_label))
-        Text(text = stringResource(id = R.string.long_break_label))
+        //
     }
 }
 
@@ -51,15 +49,7 @@ var mediaPlayer : MediaPlayer? = null
 
 fun toggleMusic(context : Context) {
     //EXERCISE SOLUTION
-    if (mediaPlayer == null) {
-        //This is where you use your passed context
-        mediaPlayer = MediaPlayer.create(context, R.raw.timer_melody)
-    }
-    if (mediaPlayer?.isPlaying == true) {
-        mediaPlayer?.pause()
-    } else {
-        mediaPlayer?.start()
-    }
+    //
 }
 
 @Composable
@@ -67,9 +57,7 @@ fun MusicRessource(modifier: Modifier = Modifier) {
     val context = LocalContext.current
     Column {
         // EXERCISE SOLUTION
-        Button(onClick = { toggleMusic(context) }) {
-            Text(text = stringResource(id = R.string.timer_label))
-        }
+        //
     }
 }
 

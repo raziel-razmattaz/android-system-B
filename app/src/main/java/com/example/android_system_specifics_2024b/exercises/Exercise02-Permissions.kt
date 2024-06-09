@@ -57,10 +57,7 @@ fun NotificationPermissionScreen() {
             */
 
             //LÖSUNG
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                //LÖSUNG
-                notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-            }
+            //
         }) {
             Text(stringResource(id =R.string.permission_button_label))
         }
@@ -104,22 +101,20 @@ fun ErklaerungsDialog(onDismiss: () -> Unit, ablehnungsCount: Int,) {
                 //TODO: 2d nutze die StringResource "desc_app_info".
 
                 //LÖSUNG
-                Text(text = stringResource(id = R.string.desc_app_info))
+                //
             }else{
                 //Wenn der Nutzer weniger als 2 mal abgelehnt hat.
                 //TODO: 2d nutze die StringResource "desc_normal".
 
                 //LÖSUNG
-                Text(text = stringResource(id = R.string.desc_normal))
+                //
             }
         },
         confirmButton = {
             //TODO: 2e Implementiere, dass der AppInfoButton() auftaucht, sobald der Nutzer mindestens 2 mal abgelehnt hat.
 
             //LÖSUNG
-            if (ablehnungsCount >= 2) {
-                AppInfoButton(context)
-            }
+            //
         },
         dismissButton = {
             TextButton(onClick = { onDismiss() }) {
